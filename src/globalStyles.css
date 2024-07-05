@@ -1,0 +1,18 @@
+.Calendar__day.-selectedBetween {
+  background: #ff33333b !important;
+  color: #000 !important;
+}
+
+* {
+  /* direction: rtl; */
+  font-family: "MyFont" !important;
+}
+
+@font-face {
+  font-family: "MyFont";
+  src: local("MyFont"), url(./assets/fonts/BYekan+.ttf) format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+        F                      'embedded-opentype', and 'svg' */
+}
