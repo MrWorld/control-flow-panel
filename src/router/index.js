@@ -5,11 +5,8 @@ import {
     Navigate,
 } from "react-router-dom"
 import Login from 'src/pages/auth/Login'
-import ResetPassword from 'src/pages/auth/ResetPassword'
-import ForgotPassword from 'src/pages/auth/ForgotPassword'
 import NotFound from 'src/pages/404'
 import NotPermitted from 'src/pages/NotPermitted'
-import StaticPage from 'src/pages/statics/StaticPage'
 
 
 import AccentSidebarLayout from 'src/components/layouts/AccentSidebarLayout'
@@ -18,17 +15,9 @@ import DashboardLayout from 'src/components/layouts/DashboardLayout'
 import SuspenseLoader from 'src/components/layouts/SuspenseLoader'
 import WrapperComponent from 'src/pages/dashboard/components/WrapperComponent'
 import { ROUTE_CONSTANTS } from 'src/constants/AppRoutes'
-import ProtectedRoutes from './ProtectedRoutes';
-import * as Permission from './roles.enum'
 
 
 const Analytics = Loader(lazy(() => import('src/pages/dashboard/Analytics')))
-
-// **** user pages ***** 
-const MyProfile = Loader(lazy(() => import('src/pages/dashboard/masters/MyProfile')))
-
-
-
 
 const Stations = Loader(lazy(() => import('src/pages/dashboard/Stations')))
 const AddUpdateStation = Loader(lazy(() => import('src/pages/dashboard/Stations/AddUpdatePage')))
@@ -39,7 +28,12 @@ const AddUpdateProduct = Loader(lazy(() => import('src/pages/dashboard/Products/
 const Manufactorings = Loader(lazy(() => import('src/pages/dashboard/ManufactoringSchema')))
 const AddUpdatemanufactoring = Loader(lazy(() => import('src/pages/dashboard/ManufactoringSchema/AddUpdatePage')))
 
-const ControlPanel = Loader(lazy(() => import('src/pages/dashboard/ControlPanel')))
+const Tasks = Loader(lazy(() => import('src/pages/dashboard/TaskSystem')))
+const AddUpdateTasks = Loader(lazy(() => import('src/pages/dashboard/TaskSystem/AddUpdatePage')))
+const Users = Loader(lazy(() => import('src/pages/dashboard/Users')))
+const AddUpdateUsers = Loader(lazy(() => import('src/pages/dashboard/Users/AddUpdatePage')))
+
+const Operation = Loader(lazy(() => import('src/pages/dashboard/Operation')))
 
 
 
@@ -67,8 +61,7 @@ const AppRouter = () => {
             <Route path={""} element={<DashboardLayout />} >
                 <Route path={ROUTE_CONSTANTS.DASHBOARD.ROOT.RELATIVE} element={<AccentSidebarLayout />}>
                     <Route path={ROUTE_CONSTANTS.DASHBOARD.ANALYTICS.RELATIVE} element={<Analytics />} />
-                    <Route path={ROUTE_CONSTANTS.DASHBOARD.USERS.PROFILE.ROOT.RELATIVE} element={<MyProfile />} />
-
+                    <Route path={ROUTE_CONSTANTS.DASHBOARD.OPERATION.RELATIVE} element={<Operation />} />
 
                     <Route path={ROUTE_CONSTANTS.DASHBOARD.STATIONS.ROOT.RELATIVE} element={<Stations />} />
                     <Route path={ROUTE_CONSTANTS.DASHBOARD.STATIONS.DETAILS.RELATIVE} element={<AddUpdateStation />} />
@@ -82,12 +75,17 @@ const AppRouter = () => {
                     <Route path={ROUTE_CONSTANTS.DASHBOARD.MANUFACTORING.DETAILS.RELATIVE} element={<AddUpdatemanufactoring />} />
                     <Route path={ROUTE_CONSTANTS.DASHBOARD.MANUFACTORING.ADD_NEW.RELATIVE} element={<AddUpdatemanufactoring addNew={true} />} />
 
+                    <Route path={ROUTE_CONSTANTS.DASHBOARD.TASK.ROOT.RELATIVE} element={<Tasks />} />
+                    <Route path={ROUTE_CONSTANTS.DASHBOARD.TASK.DETAILS.RELATIVE} element={<AddUpdateTasks />} />
+                    <Route path={ROUTE_CONSTANTS.DASHBOARD.TASK.ADD_NEW.RELATIVE} element={<AddUpdateTasks addNew={true} />} />
 
-                    <Route path={ROUTE_CONSTANTS.DASHBOARD.MASTERS.ROOT.RELATIVE} element={<WrapperComponent category='masters' />}>
-                        
-                    </Route>
+                    <Route path={ROUTE_CONSTANTS.DASHBOARD.USER.ROOT.RELATIVE} element={<Users />} />
+                    <Route path={ROUTE_CONSTANTS.DASHBOARD.USER.DETAILS.RELATIVE} element={<AddUpdateUsers />} />
+                    <Route path={ROUTE_CONSTANTS.DASHBOARD.USER.ADD_NEW.RELATIVE} element={<AddUpdateUsers addNew={true} />} />
+
+                    <Route path={ROUTE_CONSTANTS.DASHBOARD.OPERATION.RELATIVE} element={<Tasks />} />
+
                     <Route path={ROUTE_CONSTANTS.DASHBOARD.ROOT.ABSOLUTE} element={<WrapperComponent category='dashboards' />}>
-                        <Route path={ROUTE_CONSTANTS.DASHBOARD.CONTROL_PANEL.ROOT.RELATIVE} element={<ProtectedRoutes role='CONFIGURATION:CONTROLPANEL'><ControlPanel /></ProtectedRoutes>} />
                     </Route>
                 </Route>
             </Route>

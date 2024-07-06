@@ -4,7 +4,7 @@ import CategoryIcon from '@mui/icons-material/Category';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import { ROUTE_CONSTANTS } from 'src/constants/AppRoutes';
-import { CarRepairOutlined, DashboardRounded, MessageOutlined, PeopleAltOutlined, PrecisionManufacturingOutlined, ProductionQuantityLimitsOutlined } from '@mui/icons-material';
+import { CarRepairOutlined, DashboardRounded, MessageOutlined, PeopleAltOutlined, PrecisionManufacturingOutlined, ProductionQuantityLimitsOutlined, RecentActorsOutlined } from '@mui/icons-material';
 
 const stations = {
     name: 'دستگاه ها',
@@ -52,10 +52,43 @@ const manufactoring = {
         link: ROUTE_CONSTANTS.DASHBOARD.MANUFACTORING.ROOT.ABSOLUTE,
     }
 }
+const tasks = {
+    name: 'وظایف',
+    slug: 'وظایف',
+    badgeTooltip: 'وظایف',
+    icon: PrecisionManufacturingOutlined,
+    isParent: false,
+    route: {
+        name: 'وظایف',
+        icon: PrecisionManufacturingOutlined,
+        badgeTooltip: 'وظایف',
+        isParent: false,
+        isMain: true,
+        link: ROUTE_CONSTANTS.DASHBOARD.TASK.ROOT.ABSOLUTE,
+    }
+}
+
+const users = {
+    name: 'کاربران',
+    slug: 'کاربران',
+    badgeTooltip: 'کاربران',
+    icon: RecentActorsOutlined,
+    isParent: false,
+    route: {
+        name: 'کاربران',
+        icon: RecentActorsOutlined,
+        badgeTooltip: 'کاربران',
+        isParent: false,
+        isMain: true,
+        link: ROUTE_CONSTANTS.DASHBOARD.USER.ROOT.ABSOLUTE,
+    }
+}
 
 
 export const sidebarCategoryObjects = {
     stations,
     products,
-    manufactoring
+    manufactoring,
+    tasks,
+    users
 }

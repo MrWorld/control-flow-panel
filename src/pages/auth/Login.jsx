@@ -40,7 +40,7 @@ const Login = () => {
     //**** redirect user to path entered before login
     else
       return (
-        <Navigate to={ROUTE_CONSTANTS.DASHBOARD.ANALYTICS.ABSOLUTE} replace />
+        <Navigate to={ROUTE_CONSTANTS.DASHBOARD.OPERATION.ABSOLUTE} replace />
       );
   }
   return (

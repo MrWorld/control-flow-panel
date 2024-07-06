@@ -11,8 +11,8 @@ function Logo({ title }) {
       <LogoWrapper
         to={
           user?.userType == "ADMIN"
-            ? ROUTE_CONSTANTS.DASHBOARD.ANALYTICS.ABSOLUTE
-            : ROUTE_CONSTANTS.DASHBOARD.CUSTOM_DASHBOARD.ABSOLUTE
+            ? ROUTE_CONSTANTS.DASHBOARD.OPERATION.ABSOLUTE
+            : ROUTE_CONSTANTS.DASHBOARD.OPERATION.ABSOLUTE
         }
       >
         <StyledImage src={staticImages.appLogo} />

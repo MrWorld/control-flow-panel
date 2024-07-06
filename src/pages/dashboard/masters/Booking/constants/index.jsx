@@ -1,1 +1,0 @@
-export const defaultPosition = [29.301332426016785, 47.981414794921875]
